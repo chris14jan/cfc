@@ -96,7 +96,6 @@ Adding support for international languages or making the solution more robust.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Python](https://www.python.org/)
 * [scikit-learn](https://scikit-learn.org/)
 
@@ -104,7 +103,6 @@ This section should list any major frameworks that you built your project using.
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 Create virtualenv and install the project:
@@ -219,6 +217,19 @@ Project Link: [https://github.com/chris14jan/cfc](https://github.com/chris14jan/
 
 
 ## Acknowledgements
-* [GitHub README Template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)
 * [Le Wagon Data Science Bootcamp](https://www.lewagon.com/london/data-science-course/full-time)
+* [GitHub README Template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)
 
+
+[contributors-shield]: https://img.shields.io/github/contributors/chris14jan/cfc.svg?style=for-the-badge
+[contributors-url]: https://github.com/chris14jan/cfc/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/chris14jan/cfc.svg?style=for-the-badge
+[forks-url]: https://github.com/chris14jan/cfc/network/members
+[stars-shield]: https://img.shields.io/github/stars/chris14jan/cfc.svg?style=for-the-badge
+[stars-url]: https://github.com/chris14jan/cfc/stargazers
+[issues-shield]: https://img.shields.io/github/issues/chris14jan/cfc.svg?style=for-the-badge
+[issues-url]: https://github.com/chris14jan/cfc/issues
+[license-shield]: https://img.shields.io/github/license/chris14jan/cfc.svg?style=for-the-badge
+[license-url]: https://github.com/chris14jan/cfc/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/cmanti/
