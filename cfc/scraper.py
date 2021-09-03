@@ -137,18 +137,18 @@ class Scraper():
 
 
     def enumerate_hyperlinks(self, links):
-       '''
+        '''
         Returns a dict of all hyperlinks on the index page.
         The function filters out links that exclude the domain
         name from the URL.
 
         Args:
-            links (list): List of links to be filtered
-            
+        links (list): List of links to be filtered
+
         Returns:
-            hyperlinks_enumerated (dict): Dict of all hyperlinks referenced in the index page.
-                    Links are enumerated with the numbers representing
-                    the dict keys and the links the dict values.
+        hyperlinks_enumerated (dict): Dict of all hyperlinks referenced in the index page.
+                Links are enumerated with the numbers representing
+                the dict keys and the links the dict values.
         '''
         
         hyperlinks = []
