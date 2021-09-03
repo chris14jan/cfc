@@ -14,7 +14,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -39,21 +38,22 @@
   <ol>
     <li>
       <a href="#challenge-scope">Challenge Scope</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#quick-script">Quick Script</a></li>
+        <li><a href="#install-as-package">Install as Package</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li>
+      <a href="#usage">Usage</a>
+      <ul>
+        <li><a href="#assumptions">Assumptions</a></li>
+      </ul>
+    </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -71,7 +71,7 @@ libraries and binaries if you choose.
 
 **- The Challenge**  
 Produce a program that:
-1. Scrape the index webpage hosted at `cfcunderwriting.com`  
+1. Scrape the index webpage hosted at [cfcunderwriting.com](https://cfcunderwriting.com)
 2. Writes a list of *all externally loaded resources* (e.g. images/scripts/fonts not hosted
 on cfcunderwriting.com) to a JSON output file.  
 3. Enumerates the page's hyperlinks and identifies the location of the "Privacy Policy"
@@ -94,79 +94,66 @@ you would do if you had more time, and how you would expand the solution e.g.
 Adding support for international languages or making the solution more robust.
 
 
-### Built With
-
-* [Python](https://www.python.org/)
-* [scikit-learn](https://scikit-learn.org/)
-
-
-
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+Follow these simple example steps to get a local copy up and running.
 
-Create virtualenv and install the project:
-```bash
-sudo apt-get install virtualenv python-pip python-dev
-deactivate; virtualenv ~/venv ; source ~/venv/bin/activate ;\
-    pip install pip -U; pip install -r requirements.txt
-```
+### Quick Script
 
-Unittest test:
-```bash
-make clean install test
-```
+Steps to run the scraper.py file as a script:
 
-Functional test with a script:
-```bash
-cd
-mkdir tmp
-cd tmp
-cfc-run
-```
-
-
-### Prerequisites
-
-See the previous section.
-
-### Installation
-
-1. Go to `https://github.com/{group}/cfc` to see the project, manage issues,
-    setup you ssh public key, ...
+1. Go to [https://github.com/chris14jan/cfc](https://github.com/chris14jan/cfc) to see the project, manage issues,
+    setup your ssh public key, etc.
 
 2. Create a python3 virtualenv and activate it:
 
     ```bash
-    sudo apt-get install virtualenv python-pip python-dev
-    deactivate; virtualenv -ppython3 ~/venv ; source ~/venv/bin/activate
+    python3 -m venv .env
+    source ./.env/bin/activate
     ```
 3. Clone the project and install it:
 
     ```bash
-    git clone git@github.com:{group}/cfc.git
+    git clone git@github.com:chris14jan/cfc.git
     cd cfc
-    pip install -r requirements.txt
-    make clean install test                # install and test
+    make clean install_requirements
     ```
-4. Functional test with a script:
+4. Run python scraper file:
 
     ```bash
-    cd
-    mkdir tmp
-    cd tmp
+    python cfc/scraper.py
+    ```
+
+
+### Install as Package
+Additional steps to install the package and run the script from the command line:
+
+1. Install the package:
+
+    ```bash
+    make install
+    ```
+
+2. Run script from the command line:
+
+    ```bash
     cfc-run
     ```
 
 
 ## Usage
 
-The same script used in step 4 above can be used to run the package.
-The JSON output files will be saved to a ./data/ directory.
+The scraper script completes delivers the requirements outline in the scope of this project.
+The JSON output files will be saved to the `./` directory.
 
+### Assumptions
 Scraping assumptions and limitations include:
-- The following external links within scripts were not scraped:
-        <script src="https://js.hs-analytics.net/analytics/1630429800000/6072523.js" type="text/javascript" id="hs-analytics"></script>
+- There are external links that appear to be fetched from the `Google Tag Manager`.
+    The external links contained in the html snippet below are not output to the `external_links.json` file. 
+
+    Additional work is required to scrape these links.  
+        
+        ```
         <script src="https://js.hsleadflows.net/leadflows.js" type="text/javascript" id="LeadFlows-6072523" crossorigin="anonymous" data-leadin-portal-id="6072523" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="6072523" data-hsjs-env="prod" data-hsjs-hublet="na1"></script>
         <script src="https://js.hscollectedforms.net/collectedforms.js" type="text/javascript" id="CollectedForms-6072523" crossorigin="anonymous" data-leadin-portal-id="6072523" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="6072523" data-hsjs-env="prod" data-hsjs-hublet="na1"></script>
         <script src="https://js.usemessages.com/conversations-embed.js" type="text/javascript" id="hubspot-messages-loader" data-loader="hs-scriptloader" data-hsjs-portal="6072523" data-hsjs-env="prod" data-hsjs-hublet="na1"></script>
@@ -179,9 +166,10 @@ Scraping assumptions and limitations include:
         <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NGGN5FB"></script>
         <script recaptcha-v3-script="" src="https://www.google.com/recaptcha/api.js?render=explicit"></script>
         <script async="" src="https://script.hotjar.com/modules.189ddfe225c89657c20d.js" charset="utf-8"></script>
+        ```
     
-    These external links appear to be fetched from the `Google Tag Manager`. Additional work is required to scrape these links
-
+- [cfcunderwriting.com](https://cfcunderwriting.com) is the only page to be scraped.
+      A class was created to build a scraper. It needs to be updated take a url or html as in input to allow scraping of other websites.
 
 
 ## Roadmap
@@ -199,12 +187,6 @@ Contributions are what make the open source community such an amazing place to l
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
@@ -229,7 +211,5 @@ Project Link: [https://github.com/chris14jan/cfc](https://github.com/chris14jan/
 [stars-url]: https://github.com/chris14jan/cfc/stargazers
 [issues-shield]: https://img.shields.io/github/issues/chris14jan/cfc.svg?style=for-the-badge
 [issues-url]: https://github.com/chris14jan/cfc/issues
-[license-shield]: https://img.shields.io/github/license/chris14jan/cfc.svg?style=for-the-badge
-[license-url]: https://github.com/chris14jan/cfc/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cmanti/
