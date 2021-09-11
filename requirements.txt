@@ -2,17 +2,24 @@
 pip>=9
 setuptools>=26
 wheel>=0.29
+twine
 
 # project libs
 requests
 scikit-learn
 beautifulsoup4
 nltk
+mangum
+fastapi
+uvicorn
+s3fs
 
 # tests/linter
 coverage
 pytest
 yapf
+black
+flake8
 
 # utilities
 six>=1.14

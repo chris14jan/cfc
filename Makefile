@@ -19,5 +19,17 @@ clean:
 install:
 	@pip install . -U	
 
-
 all: clean install test
+
+run_api:
+	@uvicorn app.main:app --reload
+
+
+# ----------------------------------
+#          AWS Lambda
+# ----------------------------------
+build-ScraperAPI:
+	cp *.py $(ARTIFACTS_DIR)
+	cp requirements.txt $(ARTIFACTS_DIR)
+	python -m pip install -r requirements.txt -t $(ARTIFACTS_DIR)
+	rm -rf $(ARTIFACTS_DIR)/bin
