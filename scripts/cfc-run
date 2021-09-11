@@ -1,2 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+from cfc.scraper import Scraper
+
+print('Running scraper.py')
+s = Scraper()
+s.ouput_json(s.external_links(s.parse_links()))
+s.ouput_json(s.enumerate_hyperlinks(s.parse_links()))
+s.ouput_json(s.word_frequency_counter_skl())
